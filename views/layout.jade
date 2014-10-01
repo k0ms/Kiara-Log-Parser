@@ -3,5 +3,16 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/libs/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/libs/ng-grid/ng-grid.css')
+
+    script(src='/libs/jquery/dist/jquery.js')
+    script(src='/libs/angular/angular.js')
+    script(src='/libs/ng-grid/build/ng-grid.js')
+    script(src='/libs/angular-bootstrap/ui-bootstrap.js')
+
   body
-    block content
+    div(ng-app='Kirara')
+      div(class='container-fluid')
+        block content
+      

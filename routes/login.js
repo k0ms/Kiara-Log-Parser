@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Kirara Log Parser' });
+  res.render('login', {title: 'Kirara Log Parser'});
 });
 
 module.exports = router;

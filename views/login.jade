@@ -1,0 +1,16 @@
+extends layout
+
+
+block content
+  div(class='row')
+    div(class='col-lg-4 col-lg-offset-4')
+      h1(class='pull-right') #{title}
+    div(class='col-lg-4 col-lg-offset-4')
+      form(ng-submit='submit()')
+        div(class='form-group')
+          label(for='inputName') Username
+          input(type='text', id='inputName', class='form-control', placeholder='Username')
+        div(class='form-group')
+          lable(for='inputPassword') Password
+          input(type='password', id='inputPassword', class='form-control', placeholder='Password')
+        button(type='submit', class='btn btn-primary pull-right') Login
