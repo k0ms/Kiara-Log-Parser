@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='row')
+   nav(class='navbar navbar-default navbar-fixed-top navbar-inverse', role='navigation')
+     a(class='navbar-brand')
+       div(class='brandname') Kirara
+     p(class='navbar-text navbar-right') Signed in as #{username}
+     ul(class='nav navbar-nav')
+       li
+         a(href='') File
+       li
+         a(href='') View
+       li(class='dropdown')
+         a(href='#', data-toggle='dropdown', class='dropdown-toggle') Options
+           span(class='caret')
+         ul(class='dropdown-menu', role='menu')
+           li
+             a(href='#') Preference
+
+                                    
