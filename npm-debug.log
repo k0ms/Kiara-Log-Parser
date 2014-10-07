@@ -1,0 +1,63 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'angular-snap' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'angular-snap', null ]
+6 verbose cache add name=undefined spec="angular-snap" args=["angular-snap",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'angular-snap',
+7 verbose parsed url   path: 'angular-snap',
+7 verbose parsed url   href: 'angular-snap' }
+8 silly lockFile 862eccbd-angular-snap angular-snap
+9 verbose lock angular-snap /home/k0ms/.npm/862eccbd-angular-snap.lock
+10 silly lockFile 862eccbd-angular-snap angular-snap
+11 silly lockFile 862eccbd-angular-snap angular-snap
+12 verbose addNamed [ 'angular-snap', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 4b6bfa29-angular-snap angular-snap@
+15 verbose lock angular-snap@ /home/k0ms/.npm/4b6bfa29-angular-snap.lock
+16 silly addNameRange { name: 'angular-snap', range: '*', hasData: false }
+17 verbose url raw angular-snap
+18 verbose url resolving [ 'https://registry.npmjs.org/', './angular-snap' ]
+19 verbose url resolved https://registry.npmjs.org/angular-snap
+20 info trying registry request attempt 1 at 14:50:12
+21 http GET https://registry.npmjs.org/angular-snap
+22 http 404 https://registry.npmjs.org/angular-snap
+23 silly registry.get cb [ 404,
+23 silly registry.get   { date: 'Thu, 02 Oct 2014 06:50:16 GMT',
+23 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     'cache-control': 'max-age=0',
+23 silly registry.get     'content-length': '52',
+23 silly registry.get     'accept-ranges': 'bytes',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     age: '0',
+23 silly registry.get     'x-served-by': 'cache-hk90-HKG',
+23 silly registry.get     'x-cache': 'MISS',
+23 silly registry.get     'x-cache-hits': '0',
+23 silly registry.get     'x-timer': 'S1412232615.590516,VS0,VE722',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 silly lockFile 4b6bfa29-angular-snap angular-snap@
+25 silly lockFile 4b6bfa29-angular-snap angular-snap@
+26 error 404 'angular-snap' is not in the npm registry.
+26 error 404 You should bug the author to publish it
+26 error 404
+26 error 404 Note that you can also install from a
+26 error 404 tarball, folder, or http url, or git url.
+27 error System Linux 3.13.0-24-generic
+28 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "angular-snap"
+29 error cwd /home/k0ms/projects/ongoing/kirara
+30 error node -v v0.10.25
+31 error npm -v 1.3.10
+32 error code E404
+33 verbose exit [ 1, true ]
