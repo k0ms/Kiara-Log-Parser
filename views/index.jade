@@ -5,6 +5,11 @@ block content
    nav(class='navbar navbar-default navbar-fixed-top navbar-inverse', role='navigation')
      a(class='navbar-brand')
        div(class='brandname') Kirara
+     div(class='col-md-3 navbar-form navbar-right')
+       div(class='input-group input-group-xs')
+         input(type='text', class='form-control', placeholder='', ng-model='filterOptions.filterText')
+         span(class='input-group-addon')
+           span(class='glyphicon glyphicon-search')
      p(class='navbar-text navbar-right') Signed in as #{username}
      ul(class='nav navbar-nav')
        li
@@ -19,17 +24,9 @@ block content
              a(href='#') Preference
 
   div(class='row')
-    div(class='col-md-12')
-      div(class='alert alert-success', role='alert')
-
-  div(class='row', ng-controller='MessageViewController')
-    div(class='col-md-7 ui-widget-content', id='resizable')
-        div(class='gridStyle', ng-grid='gridOptions')
-    div(class='col-md-5')
-        div(class='')
-    div(class='clear')
-
-
-
-
-                                    
+    div(class='row')
+      div
+          div(class='gridStyle', ng-grid='gridOptions', resizable, on-resize='maintainColSize()')
+      div(class='tree')
+        | <json-formatter class='json-formatter-dark' open=1 json='{test: "data", test2: 23, ParentIE: {childIE1: 10, childIE2: 20}}'></json-formatter>
+        

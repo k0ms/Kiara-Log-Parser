@@ -10,8 +10,19 @@ a {
 /*style.css*/
 .gridStyle {
     border: 1px solid rgb(212,212,212);
-    width: 800px; 
-    height: 550px;
-    resize: both;
+	width: 700px; 
+    height: 650px;
+    font-size: small;
 }
 
+div[resizable] {
+	float: left;
+}
+
+div.tree {
+	border: 1px solid;
+	background: #333;
+	float: left;
+	width: 500px;
+	height: 650px;
+}

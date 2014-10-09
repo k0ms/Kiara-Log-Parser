@@ -1,33 +1,68 @@
-angular.module('MessageView.controllers', []).
-  controller('MessageViewController', function($scope/*, ergastAPIservice*/) {
+var msgViewModule = angular.module('MessageView.controllers', []);
 
-    $scope.myData = [{time: '15:49:15.091', dir: 'In', lineNo: 28490, port: 'g_pt_ranap', ptc: 'IU_CS_PTC_1', msg: '', encData:'', remarks:''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:''}];
+msgViewModule.controller('MessageViewController', function($scope/*, ergastAPIservice*/) {
+    //constants for settings
+    var tableViewSettings = [
+    	{field: 'time', width:85},
+    ];
+    //move to constants
+
+
+    $scope.treeview = {IE1: 'test', IE2: null, IE3: [{cIE1: 10}, {cIE2: "compress"}]};
+	$scope.filterOptions = {
+        filterText: ''
+    };
+
+
+    $scope.myData = [{time: '15:49:15.091', dir: 'In', lineNo: 28490, port: 'g_pt_ranap', ptc: 'IU_CS_PTC_1', msg: '', encData:'', remarks:'', treeview:''},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview:''},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: ''},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: ''},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: ''}];
 
     $scope.gridOptions = { data: 'myData',
-        				   enablePinning: true,
     					   columnDefs: [
-    					       {field: 'time',   displayName: 'Time'}, 
-    					       {field: 'lineNo', displayName: 'Line No.'},
-    					       {field: 'port',   displayName: 'Port'},
-    					       {field: 'ptc',    displayName: 'PTC'},
-    					       {field: 'msg',    displayName: 'Message'},
-    					       {field: 'encData',displayName: 'Encoded Data'},
+    					       {field: 'time',   displayName: 'Time', width: 85}, 
+    					       {field: 'lineNo', displayName: 'Line No.', width: 55},
+    					       {field: 'port',   displayName: 'Port', width: 80},
+    					       {field: 'ptc',    displayName: 'PTC', width: 100},
+    					       {field: 'msg',    displayName: 'Message', width: 150},
+    					       {field: 'encData',displayName: 'Encoded Data', width: 150},
     					       {field: 'remarks',displayName: 'Remarks'}
     					   ],
+						   filterOptions: $scope.filterOptions,
+        				   enablePinning: true,
+        				   showGroupPanel: true,
     					   enableColumnResize: true,
     					   enableCellSelection: false,
-    					   sortable: true
-    					 };
+    					   sortable: true,
+    					   multiSelect: false,
+    					   rowTemplate: '<div ng-dblclick="foo(row)" ng-style="{\'cursor\': row.cursor, \'z-index\': col.zIndex() }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell {{col.cellClass}}" ng-cell></div>'
+    					 };	
 
-//resize
-  $(function() {
-    $('#resizable').resizable();
-  });
+    $scope.foo= function(r) {
+    	console.log(r.entity);
+    }
+    $scope.maintainColSize = function(){
+       
 
+    };
 
-  });
+});
+
+msgViewModule.directive('resizable', function() {
+
+    return {
+    	 restrict: 'A',
+    	 scope: {
+    	 	callback: '&onResize'
+    	 },
+    	 link: function postLink(scope, elem, attrs) {
+    	 	elem.resizable();
+    	 	elem.on('resizestop', function (evt, ui) {
+    	 		if (scope.callback) {scope.callback();}
+    	 	});
+    	 }
+    };
+});
 
