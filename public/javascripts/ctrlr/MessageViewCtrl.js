@@ -8,17 +8,17 @@ msgViewModule.controller('MessageViewController', function($scope/*, ergastAPIse
     //move to constants
 
 
-    $scope.treeview = {IE1: 'test', IE2: null, IE3: [{cIE1: 10}, {cIE2: "compress"}]};
+    $scope.treeview = {};
 	$scope.filterOptions = {
         filterText: ''
     };
 
 
-    $scope.myData = [{time: '15:49:15.091', dir: 'In', lineNo: 28490, port: 'g_pt_ranap', ptc: 'IU_CS_PTC_1', msg: '', encData:'', remarks:'', treeview:''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview:''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: ''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: ''},
-                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: ''}];
+    $scope.myData = [{time: '15:49:15.091', dir: 'In', lineNo: 28490, port: 'g_pt_ranap', ptc: 'IU_CS_PTC_1', msg: '', encData:'', remarks:'', treeview: {SCCP_UP_Prims: { nstr: { affected: 1, affected2: 2}}}},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: {}},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: {}},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: {}},
+                 {time: "Moroni", lineNo: 50, port: '', ptc: '', msg: '', encData:'', remarks:'', treeview: {}}];
 
     $scope.gridOptions = { data: 'myData',
     					   columnDefs: [
@@ -42,6 +42,7 @@ msgViewModule.controller('MessageViewController', function($scope/*, ergastAPIse
 
     $scope.foo= function(r) {
     	console.log(r.entity);
+        $scope.treeview = r.entity.treeview;
     }
     $scope.maintainColSize = function(){
        

@@ -22,11 +22,9 @@ block content
          ul(class='dropdown-menu', role='menu')
            li
              a(href='#') Preference
-
   div(class='row')
     div(class='row')
       div
           div(class='gridStyle', ng-grid='gridOptions', resizable, on-resize='maintainColSize()')
       div(class='tree')
-        | <json-formatter class='json-formatter-dark' open=1 json='{test: "data", test2: 23, ParentIE: {childIE1: 10, childIE2: 20}}'></json-formatter>
-        
+        | <json-formatter class='json-formatter-dark resizable' open=1 json='treeview' ng-model=treeview></json-formatter>
